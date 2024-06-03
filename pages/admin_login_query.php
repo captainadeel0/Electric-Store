@@ -3,22 +3,15 @@
     include('../config/dbconn.php');
     if($_SERVER["REQUEST_METHOD"] == "POST"){
             
-        $user_unsafe=$_POST['username'];
-        $pass_unsafe=$_POST['password'];
-
-        $user = mysqli_real_escape_string($dbconn,$user_unsafe);
-        $pass1 = mysqli_real_escape_string($dbconn,$pass_unsafe);
-
-        $pass=md5($pass1);
-        $salt="a1Bz20ydqelm8m1wql";
-        $pass=$salt.$pass;
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
 
         date_default_timezone_set('Asia/Manila');
         $date = date("Y-m-d H:i:s");            
 
 
-        $query=mysqli_query($dbconn,"SELECT * FROM `admin` WHERE username='$user' AND password='$pass'");
+        $query=mysqli_query($dbconn,"SELECT * FROM `admin` WHERE username='$username' AND password='$password'");
         $res=mysqli_fetch_array($query);
         $id=$res['user_id'];
 

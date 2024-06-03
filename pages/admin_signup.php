@@ -64,58 +64,6 @@
     </nav>
     <!-- End Navbar -->
 
-<?php
-// including the database connection file
-include("../config/dbconn.php");
-if(isset($_POST['submit']))
-{   
-    $firstname=$_POST['firstname'];
-    $lastname=$_POST['lastname'];
-    $email=$_POST['email'];
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-
-    $pass1=md5($password);
-    $salt="a1Bz20ydqelm8m1wql";
-    $pass1=$salt.$pass1;
-
-    // checking empty fields
-    if(empty($firstname) || empty($lastname) || empty($email) || empty($username) || empty($password)) {    
-            
-        if(empty($firstname)) {
-            echo "<font color='red'>Firstname field is empty!</font><br/>";
-        }
-        
-        if(empty($lastname)) {
-            echo "<font color='red'>Lastname field is empty!</font><br/>";
-        }
-
-        if(empty($email)) {
-            echo "<font color='red'>Email field is empty!</font><br/>";
-        }
-        
-        if(empty($username)) {
-            echo "<font color='red'>Username field is empty!</font><br/>";
-        }    
-
-        if(empty($password)) {
-            echo "<font color='red'>Password field is empty!</font><br/>";
-        }    
-    } else {    
-        //updating the table
-        $query = "INSERT INTO admin (firstname, lastname, email, username, password) 
-                VALUES ('$firstname','$lastname','$email','$username','$pass1')";
-
-        $result = mysqli_query($dbconn,$query);
-        
-        if($result){
-            //redirecting to the display page. In our case, it is index.php
-        header("Location: admin_panel.php");
-        }
-        
-    }
-}
-?>
 
 
 
@@ -124,7 +72,7 @@ if(isset($_POST['submit']))
         <div class="container">
             <div class="col-md-4 content-center">
                 <div class="card card-login card-plain">
-                    <form class="form" method="post" action="">
+                    <form class="form" method="POST" action="./admin_signup_query.php">
                         <div class="header header-primary text-center">
                             <div class="logo-container">
                                 **LOGO**
@@ -136,13 +84,7 @@ if(isset($_POST['submit']))
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons users_circle-08"></i>
                                 </span>
-                                <input type="text" name="firstname" class="form-control" placeholder="First name" required>
-                            </div>
-                            <div class="input-group form-group-no-border input-lg">
-                                <span class="input-group-addon">
-                                    <i class="now-ui-icons users_circle-08"></i>
-                                </span>
-                                <input type="text" name="lastname" class="form-control" placeholder="Last name" required>
+                                <input type="text" name="fullname" class="form-control" placeholder="Full name" required>
                             </div>
                             <div class="input-group form-group-no-border input-lg">
                                 <span class="input-group-addon">

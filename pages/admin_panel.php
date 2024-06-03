@@ -57,7 +57,7 @@
                                  include('../config/dbconn.php');
                                  $query=mysqli_query($dbconn,"SELECT * FROM `admin` WHERE user_id='".$_SESSION['id']."'");
                                  $row=mysqli_fetch_array($query);
-                                 echo 'Admin '.$row['firstname'].'';
+                                 echo ''.$row['username'].'';
                                 ?>
                             </p>
                         </a>
@@ -117,7 +117,7 @@
                             include('../config/dbconn.php');
                             $query=mysqli_query($dbconn,"SELECT * FROM `admin` WHERE user_id='".$_SESSION['id']."'");
                             $row=mysqli_fetch_array($query);
-                            echo ''.$row['firstname'].' '.$row['lastname'].'';
+                            echo ''.$row['username'].'';
                             ?>
                         </h2>
                         <p class="category">Administrator</p>
@@ -328,7 +328,7 @@
                                                 while($row=mysqli_fetch_array($query)){ 
                                             ?>
                                           <tr>
-                                            <td><?php echo $row['firstname']." ".$row['lastname']." ".$row['action']." last ".$row['date'];?></td>
+                                            <td><?php echo $row['fullname']." ".$row['action']." last ".$row['date'];?></td>
                                           </tr>               
                                                 <?php
                                               }
@@ -367,7 +367,7 @@
                                                 while($row=mysqli_fetch_array($query)){ 
                                             ?>
                                           <tr>
-                                            <td><?php echo $row['firstname']." ".$row['lastname']." ".$row['action']." last ".$row['date'];?></td>
+                                            <td><?php echo $row['fullname']." ".$row['action']." last ".$row['date'];?></td>
                                           </tr>               
                                                 <?php
                                               }
@@ -400,7 +400,7 @@
                                       if($action=='deleted'){
                                           echo "<div class='alert alert-success'>Record was deleted.</div>";
                                       }
-                                      $query = "SELECT * FROM users ORDER BY firstname ASC";
+                                      $query = "SELECT * FROM users ORDER BY fullname ASC";
                                       $result = mysqli_query($dbconn,$query);
                                       ?>  
                                  

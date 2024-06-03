@@ -67,7 +67,7 @@
         <div class="container">
             <div class="col-md-4 content-center">
                 <div class="card card-login card-plain">
-                    <form class="form" method="POST" action="admin_login.php">
+                    <form class="form" method="POST" action="admin_login_query.php">
                         <div class="header header-primary text-center">
                             Administrator Login
                         </div><br>

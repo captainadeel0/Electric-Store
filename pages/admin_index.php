@@ -61,7 +61,7 @@
                                  include('../config/dbconn.php');
                                  $query=mysqli_query($dbconn,"SELECT * FROM `admin` WHERE user_id='".$_SESSION['id']."'");
                                  $row=mysqli_fetch_array($query);
-                                 echo 'Admin '.$row['firstname'].'';
+                                 echo ''.$row['username'].'';
                                 ?>
                             </p>
                         </a>
