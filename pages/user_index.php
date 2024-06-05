@@ -66,7 +66,7 @@
                         </a>
                     </li>
 					 <li class="nav-item">
-                        <a href="admin_index.php" class="nav-link" onclick="scrollToDownload()">
+                        <a href="admin_login_page.php" class="nav-link" onclick="scrollToDownload()">
                             <i class="now-ui-icons education_paper"></i>
                             <p>ADMIN PANEL</p>
                         </a>
@@ -148,42 +148,63 @@
                                 </form>
                         </center>
                     </div>
+
+
+                    <style>
+                        .thumbnail {
+                               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                               transition: 0.3s;
+                               border-radius: 10px; }
+                               
+                               .thumbnail:hover {
+                               box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+                               transform: translateY(-5px); 
+                               border-radius: 10px;
+                               }
+
+                    </style>
                     <br><hr color="orange">
 
-                      <div class="tab-pane  active" id="">
-                        <ul class="thumbnails">
-                        <?php
-                        $query = "SELECT * FROM products ORDER BY prod_name ASC";
-                        $result = mysqli_query($dbconn,$query);
-                        while($res = mysqli_fetch_array($result)) {  
-                            $prod_id=$res['prod_id'];
-                        
-                    ?>   
-                        <div class="row-sm-3">
-                            <div class="thumbnail">
-                                <?php if($res['prod_pic1'] != ""): ?>
-                                <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="200px">
-                                <?php else: ?>
-                                <img src="../uploads/default.png" width="300px" height="200px">
-                                <?php endif; ?>
-                            <div class="caption">
-                              <h5><b><?php echo $res['prod_name'];?></b></h5>
-                              <h6><a class="btn btn-success btn-round" title="Click for more details!" href="user_product_details.php?prod_id=<?php echo $res['prod_id'];?>"><i class="now-ui-icons gestures_tap-01"></i>View</a><medium class="pull-right">Php<?php echo $res['prod_price']; ?></medium></h6>
-                            </div>
-
-                            </div>
-                          <hr color="orange">
-                          </div>
-                                 
-                    <?php }?> 
-
-                          </ul>
-                      </div>
-
-
-        </div>
-    </div>     
+<div class="tab-pane shadow active" id="">
+    <ul class="thumbnails">
+        <?php
+        $query = "SELECT * FROM products ORDER BY prod_name ASC";
+        $result = mysqli_query($dbconn, $query);
+        $count = 0; // Counter to keep track of items in a row
+        echo '<div class="row mt-5">'; // Start the initial row
+        while ($res = mysqli_fetch_array($result)) {
+            $prod_id = $res['prod_id'];
+        ?>
+            <div class="col-sm-4 ">
+                <div class="thumbnail ">
+                    <?php if ($res['prod_pic1'] != "") : ?>
+                        <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="200px">
+                    <?php else : ?>
+                        <img src="../uploads/default.png" width="300px" height="200px">
+                    <?php endif; ?>
+                    <div class="caption">
+                        <h5><b><?php echo $res['prod_name']; ?></b></h5>
+                        <h6 class="m-3">
+    <a class="btn btn-success btn-round" title="Click for more details!" href="user_product_details.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
+    <span style="margin-left: 130px;">Rs: <?php echo $res['prod_price']; ?></span> <!-- Add margin-left -->
+</h6>
 </div>
+
+</div>
+<hr color="orange">
+</div>
+     
+<?php }?> 
+
+</ul>
+</div>
+
+
+</div>
+</div>     
+</div>
+                    
+
         <footer class="footer" data-background-color="black">
             <div class="container">
                 <nav>

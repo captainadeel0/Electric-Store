@@ -54,7 +54,7 @@ if(isset($_POST['submit']))
                 mysqli_query($dbconn,"INSERT INTO logs (user_id,action,date) VALUES ('$id','$remarks','$date')")or die(mysqli_error($dbconn));
 
         //redirecting to the display page.
-        header("Location: admin_panel.php");
+        header("Location: show_products.php");
         }
         
     }

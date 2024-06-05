@@ -113,9 +113,9 @@
                             <img src="../assets/img/default-avatar.png" alt="">
                         </div>
                         <h2 class="title">
-                            Admin Panel
+                           Admins
                         </h2>
-                        <p class="category">Administrator</p>
+                        
                     </div>
                 </div>
             </div>
@@ -134,181 +134,90 @@
                <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
                         <h4 class="title text-center">Administrator Dashboard</h4>
-                       
-                        
-                       
-                        
-                    </div>
-                    <!-- Tab panes -->
-                   
-                
-                                    
-                 <div class="container pt-4 px-4">
-                <div class="row ">                   
-                     <div class="col-sm-6 col-md-3 ">
-                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                        <div class="nav-align-center">
                             <ul class="nav nav-pills nav-pills-primary" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active"  href="show_products.php" role="tablist">
+                                    <a class="nav-link"  href="show_products.php" role="tablist">
                                         <i class="now-ui-icons shopping_tag-content"></i>
                                     </a>
                                 </li>
-                            </ul>  
-                     
-                            <div class="ms-2">
-                                <p class="mb-2">Total Products</p>
-                                <?php
-                                require_once("../config/dbconn.php");
-                                $select = "SELECT * FROM products";
-                                
-                                $result = mysqli_query($dbconn, $select);
-                                
-                                if($products_total = mysqli_num_rows($result))
-                                
-                                {
-                                
-                                echo ' <h6 class="mb-0">'.$products_total.'</h6>';
-                                }
-                                else
-                                 {
-                                    echo ' <h6 class="mb-0">No data found</h6>';
-                                 }
-                              
-                                  ?>
-                                   
-                                  
-                            </div>
-                        </div>
-                    </div>
-
-
-                                   
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <ul class="nav nav-pills nav-pills-primary" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active"  href="show_supplier.php" role="tablist">
-                                    <i class="now-ui-icons shopping_delivery-fast"></i>
+                                    <a class="nav-link"  href="show_supplier.php" role="tablist">
+                                        <i class="now-ui-icons shopping_delivery-fast"></i>
                                     </a>
                                 </li>
-                            </ul>  
-                            <div class="ms-3">
-                                <p class="mb-2">Total Suppliers</p>
-                                <?php
-                                require_once("../config/dbconn.php");
-                                $select = "SELECT * FROM supplier";
-                                
-                                $result = mysqli_query($dbconn, $select);
-                                
-                                if($supplier_total = mysqli_num_rows($result))
-                                
-                                {
-                                
-                                echo ' <h6 class="mb-0">'.$supplier_total.'</h6>';
-                                }
-                                else
-                                 {
-                                    echo ' <h6 class="mb-0">No data found</h6>';
-                                 }
-                              
-                                  ?>
-                                  
-                            </div>
-                        </div>
-                    </div>
-
-
-                                   
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            
-                            <ul class="nav nav-pills nav-pills-primary" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="show_users.php" role="tablist">
+                                    <a class="nav-link"  href="show_users.php" role="tablist">
+                                        <i class="now-ui-icons users_circle-08"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active"  href="show_admins.php" role="tablist">
                                     <i class="now-ui-icons users_circle-08"></i>
                                     </a>
                                 </li>
-                            </ul>  
-
-                            <div class="ms-3">
-                                <p class="mb-2">Total Users</p>
-                                <?php
-                                require_once("../config/dbconn.php");
-                                $select = "SELECT * FROM users";
-                                
-                                $result = mysqli_query($dbconn, $select);
-                                
-                                if($users_total = mysqli_num_rows($result))
-                                
-                                {
-                                
-                                echo ' <h6 class="mb-0">'.$users_total.'</h6>';
-                                }
-                                else
-                                 {
-                                    echo ' <h6 class="mb-0">No data found</h6>';
-                                 }
-                              
-                                  ?>
-                                  
-                                  
-                            </div>
+                            </ul>
                         </div>
                     </div>
-
-
-                                   
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            
-                            <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="show_admins.php" role="tablist">
-                                    <i class="now-ui-icons users_circle-08"></i>
-                                    </a>
-                                </li>
-                            </ul>  
-                            
-                            <div class="ms-3">
-                                <p class="mb-2">Total Admins</p>
-                                <?php
-                                require_once("../config/dbconn.php");
-                                $select = "SELECT * FROM admin";
-                                
-                                $result = mysqli_query($dbconn, $select);
-                                
-                                if($admins_total = mysqli_num_rows($result))
-                                
-                                {
-                                
-                                echo ' <h6 class="mb-0">'.$admins_total.'</h6>';
-                                }
-                                else
-                                 {
-                                    echo ' <h6 class="mb-0">No data found</h6>';
-                                 }
-                              
-                                  ?>
-                                
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Tab panes -->
+                    <div class="tab-content gallery">
+                    <div class="tab" id="admin_accounts" role="tabpanel">
+                    <a class="btn btn-success btn-round mb-4" href="admin_panel.php"><i class="now-ui-icons ui-1_simple-add"></i> Back To Admin Panel</a>
+                  
+                    <div class="col-md-12 ml-auto mr-auto">                    
+              <div class="row collections">
+                                    <br>
                                     
-                    </div>
-                    </div>
+                                    <div class="row">
+                                        <div align="center">
+                                            <h3>Admin Information</h3>
+                                        </div>
+                                    </div>
+                                    <br>                
+                                    
+                                      <?php
+                                      include('../config/dbconn.php');
 
-                        
-                        
-
+                                      $action = isset($_GET['action']) ? $_GET['action'] : "";
+                                      if($action=='deleted'){
+                                          echo "<div class='alert alert-success'>Record was deleted.</div>";
+                                      }
+                                      $query = "SELECT * FROM admin ORDER BY fullname ASC";
+                                      $result = mysqli_query($dbconn,$query);
+                                      ?>  
+                                 
+                                <br>
+                                <br>
+                                <table class="table  table-striped">
+                                    <tr>
+                                      <th>Full Name</th>
+                                      <th>Email</th>
+                                      <th>Username</th>
+                                      <th>Option</th>
+                                    </tr>
+                                        <?php
+                                          if($result){
+                                            while($res = mysqli_fetch_array($result)) {     
+                                              echo "<tr>";
+                                                echo "<td>".$res['fullname']."</td>";
+                                                echo "<td>".$res['email']."</td>";
+                                                echo "<td>".$res['username']."</td>";  
+                                                //echo "<td>".$res['password']."</td>"; 
+                                                echo "<td><a href=\"admin_account_update.php?user_id=$res[user_id]\">Edit</a> | <a href=\"admin_account_delete.php?user_id=$res[user_id]
+                                                \" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+                                              echo "</tr>"; 
+                                            }
+                                          }?>
+                                </table>
+                                <br><br>
+                                <a class="btn btn-success btn-round" href="admin_signup.php"><i class="now-ui-icons ui-1_simple-add"></i> Add Admin Account</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
+            
+
     </div>
 </body>
 <!--   Core JS Files   -->

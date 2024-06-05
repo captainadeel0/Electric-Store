@@ -23,7 +23,7 @@
         else{
             $res=mysqli_fetch_array($query);
             $_SESSION['id']=$res['user_id'];
-            header('Location: admin_index.php');
+            header('Location: admin_panel.php');
             
             $_SESSION['id']=$id;
             $remarks="(Administrator) has logged in the system at ";  

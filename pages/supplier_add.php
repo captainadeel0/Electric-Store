@@ -60,38 +60,18 @@ if(isset($_POST['submit'])){
     $supp_contact=$_POST['supp_contact'];
     $supp_email=$_POST['supp_email'];
 
-     // checking empty fields
-    if(empty($supp_name) || empty($supp_address) || empty($supp_contact) || empty($supp_email)){    
-            
-        if(empty($supp_name)) {
-            echo "<font color='red'>Supplier name field is empty!</font><br/>";
-        }
-        
-        if(empty($supp_address)) {
-            echo "<font color='red'>Address field is empty!</font><br/>";
-        }
-
-        if(empty($supp_contact)) {
-            echo "<font color='red'>Contact field is empty!</font><br/>";
-        }   
-
-        if(empty($supp_email)) {
-            echo "<font color='red'>Email price field is empty!</font><br/>";
-        }   
-
-    } else {    
-
+     
         $query = "INSERT INTO supplier (supp_name, supp_address, supp_contact, supp_email) 
         VALUES ('$supp_name','$supp_address','$supp_contact','$supp_email')";  
 
         $result = mysqli_query($dbconn,$query);
         
         if($result){
-            //redirecting to the display page. In our case, it is index.php
-        header("Location: admin_panel.php");
+      
+            header("Location: show_supplier.php");
         }
         
-    }
+    
 }
 
 ?>

@@ -9,26 +9,6 @@ if(isset($_POST['update']))
     $supp_contact = mysqli_real_escape_string($dbconn, $_POST['supp_contact']);
     $supp_email = mysqli_real_escape_string($dbconn, $_POST['supp_email']); 
 
-    // checking empty fields
-    if(empty($supp_name) || empty($supp_address) || empty($supp_contact) || empty($supp_email)) {    
-            
-        if(empty($supp_name)) {
-            echo "<font color='red'>Supplier name field is empty!</font><br/>";
-        }
-        
-        if(empty($supp_address)) {
-            echo "<font color='red'>Address field is empty!</font><br/>";
-        }
-
-        if(empty($supp_contact)) {
-            echo "<font color='red'>Contact field is empty!</font><br/>";
-        }
-        
-        if(empty($supp_email)) {
-            echo "<font color='red'>Email field is empty!</font><br/>";
-        }    
-       
-    } else {    
 
 
 
@@ -39,11 +19,10 @@ if(isset($_POST['update']))
         $result = mysqli_query($dbconn,$query);
         
         if($result){
-            //redirecting to the display page. In our case, it is index.php
-        header("Location: admin_panel.php");
+            
+        header("Location: show_supplier.php");
         }
         
-    }
 }
 ?>
 

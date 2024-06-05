@@ -13,40 +13,6 @@ if(isset($_POST['update']))
     $supplier = mysqli_real_escape_string($dbconn, $_POST['supplier']);
     $prod_serial = mysqli_real_escape_string($dbconn, $_POST['prod_serial']);
 
-    // checking empty fields
-    if(empty($prod_name) || empty($prod_desc) || empty($prod_cost) || empty($prod_price) || empty($supplier) || empty($category) || empty($prod_serial)) {    
-            
-        if(empty($prod_name)) {
-            echo "<font color='red'>Product name field is empty!</font><br/>";
-        }
-        
-        if(empty($prod_desc)) {
-            echo "<font color='red'>Product description field is empty!</font><br/>";
-        }
-
-        if(empty($prod_cost)) {
-            echo "<font color='red'>Product cost field is empty!</font><br/>";
-        }
-        
-        if(empty($prod_price)) {
-            echo "<font color='red'>Product price field is empty!</font><br/>";
-        }    
-
-        if(empty($supplier)) {
-            echo "<font color='red'>Supplier field is empty!</font><br/>";
-        }  
-
-        if(empty($category)) {
-            echo "<font color='red'>Category field is empty!</font><br/>";
-        }  
-
-        if(empty($prod_serial)) {
-            echo "<font color='red'>Serial number field is empty!</font><br/>";
-        } 
-       
-    } else {    
-
-
 
 
 
@@ -57,11 +23,11 @@ if(isset($_POST['update']))
         
         if($result){
             //redirecting to the display page. In our case, it is index.php
-        header("Location: admin_panel.php");
+        header("Location: show_products.php");
         }
         
     }
-}
+
 ?>
 
 

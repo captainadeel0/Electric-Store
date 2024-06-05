@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
 
         //updating the table
         $query = "INSERT INTO admin (fullname, email, username, password) 
-                VALUES ('$fullname','$email','$username','$pass1')";
+                VALUES ('$fullname','$email','$username','$password')";
 
         $result = mysqli_query($dbconn,$query);
         

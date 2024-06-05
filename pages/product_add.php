@@ -70,54 +70,8 @@ if(isset($_POST['submit'])){
     $prod_pic2=$_FILES["prod_pic2"]["name"];
     move_uploaded_file($_FILES["prod_pic3"]["tmp_name"],"../uploads/" . $_FILES["prod_pic3"]["name"]);         
     $prod_pic3=$_FILES["prod_pic3"]["name"];
-
-     // checking empty fields
-    if(empty($prod_name) || empty($prod_desc) || empty($prod_qty) || empty($prod_cost) || empty($prod_price) || empty($category) 
-        || empty($supplier) || empty($prod_serial) || empty($prod_pic1) || empty($prod_pic2) || empty($prod_pic3)){    
-            
-        if(empty($prod_name)) {
-            echo "<font color='red'>Product name field is empty!</font><br/>";
-        }
-        
-        if(empty($prod_desc)) {
-            echo "<font color='red'>Product description field is empty!</font><br/>";
-        }
-
-        if(empty($prod_qty)) {
-            echo "<font color='red'>Quantity field is empty!</font><br/>";
-        }   
-
-        if(empty($prod_price)) {
-            echo "<font color='red'>Product price field is empty!</font><br/>";
-        }   
-
-        if(empty($category)) {
-            echo "<font color='red'>Category field is empty!</font><br/>";
-        }  
-
-        if(empty($supplier)) {
-            echo "<font color='red'>Supplier field is empty!</font><br/>";
-        } 
-
-        if(empty($prod_serial)) {
-            echo "<font color='red'>Serial field is empty!</font><br/>";
-        }
-
-        if(empty($prod_pic1)) {
-            echo "<font color='red'>Picture1 field is empty!</font><br/>";
-        }
-
-        if(empty($prod_pic2)) {
-            echo "<font color='red'>Picture2 field is empty!</font><br/>";
-        }
-
-        if(empty($prod_pic3)) {
-            echo "<font color='red'>Picture3 field is empty!</font><br/>";
-        }
-
-    } else {    
-
-        $query = "INSERT INTO products (prod_name, prod_desc, prod_qty, prod_cost, prod_price, category, supplier, prod_serial, prod_pic1, prod_pic2, prod_pic3) 
+       
+       $query = "INSERT INTO products (prod_name, prod_desc, prod_qty, prod_cost, prod_price, category, supplier, prod_serial, prod_pic1, prod_pic2, prod_pic3) 
         VALUES ('$prod_name','$prod_desc','$prod_qty','$prod_cost','$prod_price','$category','$supplier','$prod_serial','$prod_pic1','$prod_pic2','$prod_pic3')";  
 
         $result = mysqli_query($dbconn,$query);
@@ -141,10 +95,10 @@ if(isset($_POST['submit'])){
                 mysqli_query($dbconn,"INSERT INTO logs (user_id,action,date) VALUES ('$id','$remarks','$date')")or die(mysqli_error($dbconn));
 
         //redirecting to the display page.
-        header("Location: admin_panel.php");
+        header("Location: show_products.php");
         }
         
-    }
+    
 }
 
 ?>

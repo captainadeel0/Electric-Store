@@ -4,49 +4,22 @@ include("../config/dbconn.php");
 if(isset($_POST['update']))
 {   
     $id = mysqli_real_escape_string($dbconn, $_POST['user_id']);
-    $fname = mysqli_real_escape_string($dbconn, $_POST['firstname']);
-    $lname = mysqli_real_escape_string($dbconn, $_POST['lastname']);
+    $fname = mysqli_real_escape_string($dbconn, $_POST['fullname']);
     $email = mysqli_real_escape_string($dbconn, $_POST['email']); 
     $uname = mysqli_real_escape_string($dbconn, $_POST['username']); 
     $pword = mysqli_real_escape_string($dbconn, $_POST['password']); 
 
-    $pass1=md5($pword);
-    $salt="a1Bz20ydqelm8m1wql";
-    $pass1=$salt.$pass1;
     
-    // checking empty fields
-    if(empty($fname) || empty($lname) || empty($email) || empty($uname) || empty($pword)) {    
-            
-        if(empty($fname)) {
-            echo "<font color='red'>Firstname field is empty!</font><br/>";
-        }
-        
-        if(empty($lname)) {
-            echo "<font color='red'>Lastname field is empty!</font><br/>";
-        }
-
-        if(empty($email)) {
-            echo "<font color='red'>Email field is empty!</font><br/>";
-        }
-        
-        if(empty($uname)) {
-            echo "<font color='red'>Username field is empty!</font><br/>";
-        }    
-
-        if(empty($pword)) {
-            echo "<font color='red'>Password field is empty!</font><br/>";
-        }    
-    } else {    
-        //updating the table
-        $query = "UPDATE admin SET firstname='$fname',lastname='$lname',email='$email',username='$uname',password='$pass1' WHERE user_id=$id";
+    //updating the table
+        $query = "UPDATE admin SET fullname='$fname',email='$email',username='$uname',password='$pword' WHERE user_id=$id";
         $result = mysqli_query($dbconn,$query);
         
         if($result){
             //redirecting to the display page. In our case, it is index.php
-        header("Location: admin_panel.php");
+        header("Location: show_admins.php");
         }
         
-    }
+    
 }
 ?>
 
@@ -57,8 +30,7 @@ $id=isset($_GET['user_id']) ? $_GET['user_id'] : die('ERROR: Record ID not found
 $result = mysqli_query($dbconn, "SELECT * FROM admin WHERE user_id=$id");
 while($res = mysqli_fetch_array($result))
 {
-    $fname = $res['firstname'];
-    $lname = $res['lastname'];
+    $fname = $res['fullname'];
     $email = $res['email'];
     $uname = $res['username'];
     $pword = $res['password'];
@@ -113,10 +85,8 @@ while($res = mysqli_fetch_array($result))
                     <form action="admin_account_update.php" method="post">
                         <div class="form group">
                             <input type="hidden" class="form-control" id="user_id" name="user_id" value=<?php echo $_GET['user_id'];?>>
-                            <label for="firstname">First Name:</label>
-                            <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $fname;?>">
-                            <label for="lastname">Last Name:</label>
-                            <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo $lname;?>">
+                            <label for="firstname">Full Name:</label>
+                            <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo $fname;?>">
                             <label for="email">Email:</label>
                             <input type="text" class="form-control" id="email" name="email" value="<?php echo $email;?>">
                             <label for="username">Username:</label>
