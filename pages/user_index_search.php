@@ -51,7 +51,7 @@
                     <span class="navbar-toggler-bar bar4"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../assets/img/blurred-image-1.jpg">
+            <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="assets/img/blurred-image-1.jpg">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="" onclick="scrollToDownload()">
@@ -61,7 +61,7 @@
                                  include('../config/dbconn.php');
                                  $query=mysqli_query($dbconn,"SELECT * FROM `users` WHERE user_id='".$_SESSION['id']."'");
                                  $row=mysqli_fetch_array($query);
-                                 echo ''.$row['firstname'].'';
+                                 echo ''.$row['username'].'';
                                 ?>
                             </p>
                         </a>
@@ -85,7 +85,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="logout.php" class="nav-link" href="" onclick="scrollToDownload()">
+                        <a href="../index.php" class="nav-link" href="" onclick="scrollToDownload()">
                             <i class="now-ui-icons ui-1_lock-circle-open"></i>
                             <p>Logout</p>
                         </a>
@@ -115,7 +115,7 @@
     <!-- End Navbar -->
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/ironman.jpg');">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('assets/img/ironman.jpg');">
             
                 <div class="container">
                     <div class="content-center brand">
@@ -144,7 +144,7 @@
                         <center>
                         <label><b>Search Product: &nbsp</b></label>       
                                 <form method="POST" action="user_index_search.php" >
-                                    <input type="image" title="Search" src="../assets/img/search.png" alt="Search" />
+                                    <input type="image" title="Search" src="assets/img/search.png" alt="Search" />
                                     <input type="text" name="search" class="search-query" placeholder="Enter product name">
                                 </form>
                         </center>
@@ -167,9 +167,9 @@
                             <div class="row-sm-3">
                                 <div class="thumbnail">
                                     <?php if($res['prod_pic1'] != ""): ?>
-                                    <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="200px">
+                                    <img src="uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="200px">
                                     <?php else: ?>
-                                    <img src="../uploads/default.png" width="300px" height="200px">
+                                    <img src="uploads/default.png" width="300px" height="200px">
                                     <?php endif; ?>
                                 <div class="caption">
                                   <h5><b><?php echo $res['prod_name'];?></b></h5>

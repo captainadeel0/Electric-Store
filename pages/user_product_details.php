@@ -79,11 +79,11 @@
     <link href="../assets/css/demo.css" rel="stylesheet" />
 </head>
 
-    <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script src="../js/jquery.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.js" type="text/javascript"></script>
 
-    <script type="text/javascript" charset="utf-8" language="javascript" src="js/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf-8" language="javascript" src="js/DT_bootstrap.js"></script>
+    <script type="text/javascript" charset="utf-8" language="javascript" src="../js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf-8" language="javascript" src="../js/DT_bootstrap.js"></script>
 
 
 <body class="index-page sidebar-collapse">
@@ -143,7 +143,7 @@
                         </div>
                         <div class="carousel-item">
                             <?php if($res['prod_pic3'] != ""): ?>
-                            <img class="d-block" src="../uploads/<?php echo $res['prod_pic3']; ?>" alt="Third slide">
+                            <img class="d-block" src="../uploads/<?php echo $res['prod_pic3']; ?>"  alt="Third slide">
                             <?php else: ?>
                             <img src="../uploads/default.png">
                             <?php endif; ?>
@@ -198,8 +198,8 @@
         </h4>
 
             <!-- Button trigger modal -->
-            <button class="btn btn-success btn-round pull-right" data-toggle="modal" data-target="#myModal">
-                <i class="now-ui-icons shopping_cart-simple"></i>Add To Cart</button>
+            <button class="btn btn-success btn-round pull-right m-2" data-toggle="modal" data-target="#myModal">
+                <i class="now-ui-icons shopping_cart-simple"></i> Add To Cart</button>
 
             <!-- Modal Core -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

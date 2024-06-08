@@ -152,45 +152,7 @@
                 }
               ?>
 
-            <!-- Modal Core -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Shipping Address:</h4>
-                  </div>
-                  <div class="modal-body">
-
-                      <div class="form-group">
-                      <input type="text" class="form-control" name="shipaddress" placeholder="Complete Address For Delivery Purpose." required/>
-                      <select class="btn btn-warning btn-round dropdown-toggle" size="1" name="city">
-                      <option value="Manila City">Manila</option>
-                      <option value="Caloocan City">Caloocan</option>
-                      <option value="Las Pinas City">Las Pinas</option>
-                      <option value="Makati City">Makati</option>
-                      <option value="Malabon City">Malabon</option>
-                      <option value="Mandaluyong City">Mandaluyong</option>
-                      <option value="Marikina City">Marikina</option>
-                      <option value="Muntinlupa City">Muntinlupa</option>
-                      <option value="Navotas City">Navotas</option>
-                      <option value="Paranaque City">Paranaque</option>
-                      <option value="Pasay City">Pasay</option>
-                      <option value="Pasig City">Pasig</option>
-                      <option value="Quezon City">Quezon</option>
-                      <option value="San Juan City">San Juan</option>
-                      <option value="Taguig City">Taguig</option>
-                      <option value="Valenzuela City">Valenzuela</option>
-                      </select>  
-                      </div>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
-                    <a><button type="submit" name="submit" class="btn btn-success btn-round"><i class="now-ui-icons shopping_delivery-fast"></i> Submit</button></a>
-                  </div>
-              </div>
-            </div>
+            
             </div>
 
     </form>

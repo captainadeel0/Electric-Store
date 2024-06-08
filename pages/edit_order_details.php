@@ -41,7 +41,7 @@
                                  $query=mysqli_query($dbconn,"SELECT * FROM `users` WHERE user_id='".$_SESSION['id']."'");
                                  $row=mysqli_fetch_array($query);
                                  $cid=$row['user_id'];
-                                 echo $row['firstname'];
+                                 echo $row['fullname'];
                                 ?>'s Shopping Cart
                       </h2>
                       <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons shopping_basket"></i> &nbsp Shop more items</a>

@@ -25,6 +25,9 @@
     <link href="../assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/css/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../fonts/css/all.css">
+    <script src="../fonts/js/all.js"></script>
+
 
     <!--     inserted     -->
     <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
@@ -50,7 +53,7 @@
                     <span class="navbar-toggler-bar bar4"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../assets/img/blurred-image-1.jpg">
+            <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="assets/img/blurred-image-1.jpg">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="" onclick="scrollToDownload()">
@@ -131,22 +134,88 @@
                 <div class="container">
                     <br>
                     <div class="col-md-12">
-                        <h2 class="title">Products</h2>
-                        <div class="typography-line">
-                            <p>
-                            “The reason it seems that price is all your customers care about is that you haven’t given them anything else to care about.”-Seth Godin, American author, entrepreneur, marketer, and public speaker.
-                            </p>
-                        </div>
+
+                    
+                        
+
+                        <div class="col-md-12 ml-auto mr-auto">
+
+
+                        
+                        <h3 class="title text-center">Our Products</h3>
+
                         <br>
+                        
+                        <div class="nav-align-center">
+
+                          
+      <form method="POST" action="user_index_search.php">
+        <div class="mb-3  ">
+          <label for="search" class="form-label"><b>Search Product:</b></label>
+          <input type="text" name="search" class="form-control  " id="search" placeholder="Enter product name">
+        </div>
+      </form>
+    
+    <br><br>
+                               
+                        
+                       
+                       <style>
+  /* CSS to center the list items */
+  ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center align the list items */
+  }
+
+  li {
+    display: inline-block; /* Display list items in a row */
+    margin: 0 10px; /* Add margin for spacing between items */
+  }
+
+  /* Style the links */
+  .nav-link {
+    text-decoration: none; /* Remove default underline */
+    color: black; /* Set link color */
+  }
+</style>
+
+<ul>
+  <li class="nav-item">
+    <a class="nav-link active" href="#laptops" role="tablist">
+      <h5>Laptops</h5>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#desktop-pc" role="tablist">
+      <h5>Desktop PC</h5>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#tablets" role="tablist">
+      <h5>Tablets</h5>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#chrome-books" role="tablist">
+      <h5>Chrome Books</h5>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#accessories" role="tablist">
+      <h5>Accessories</h5>
+    </a>
+  </li>
+</ul>
+
+                        </div>
+                    </div>
+                       
 
 
-                       <center>
-                        <label><b>Search Product: &nbsp</b></label>       
-                                <form method="POST" action="user_index_search.php" >
-                                    <input type="image" title="Search" src="../assets/img/search.png" alt="Search" />
-                                    <input type="text" name="search" class="search-query" placeholder="Enter product name">
-                                </form>
-                        </center>
+
+                
+                           
                     </div>
 
 
@@ -164,40 +233,224 @@
 
                     </style>
                     <br><hr color="orange">
+                    <br>
 
-<div class="tab-pane shadow active" id="">
-    <ul class="thumbnails">
+<!-- =========== laptop section  ============= -->
+
+<h3 id="laptops"  class="title text-center">Laptops</h3>
+    <div class="tab-pane shadow active" id="">
+        <ul class="thumbnails">
         <?php
-        $query = "SELECT * FROM products ORDER BY prod_name ASC";
+        $query = "SELECT * FROM products  WHERE category = 'Laptops' ORDER BY prod_name ASC";
         $result = mysqli_query($dbconn, $query);
-        $count = 0; // Counter to keep track of items in a row
-        echo '<div class="row mt-5">'; // Start the initial row
+        $count = 0; 
+         echo '<div class="row mt-5">';
         while ($res = mysqli_fetch_array($result)) {
             $prod_id = $res['prod_id'];
         ?>
             <div class="col-sm-4 ">
                 <div class="thumbnail ">
                     <?php if ($res['prod_pic1'] != "") : ?>
-                        <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="200px">
+                        <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="240px">
                     <?php else : ?>
                         <img src="../uploads/default.png" width="300px" height="200px">
                     <?php endif; ?>
                     <div class="caption">
                         <h5><b><?php echo $res['prod_name']; ?></b></h5>
                         <h6 class="m-3">
-    <a class="btn btn-success btn-round" title="Click for more details!" href="user_product_details.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
-    <span style="margin-left: 130px;">Rs: <?php echo $res['prod_price']; ?></span> <!-- Add margin-left -->
-</h6>
-</div>
+                           <a class="btn btn-success btn-round" title="Click for more details!" href="user_product_details.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
+                           <span style="margin-left: 110px;">Rs: <?php echo $res['prod_price']; ?></span> <!-- Add margin-left -->
+                    </h6>
+                    </div>
+                    
+                </div>
+                    <hr color="orange">
+            </div>
+                         
+                    <?php }?> 
+                    
+                    </ul>
+        </div>
 
-</div>
-<hr color="orange">
-</div>
+        <!--   end    -->
+
+        <!--============= desktop pc section========== -->
+
+        <h3 id="desktop-pc"  class="title text-center">Desktop PC</h3>
+<div class="tab-pane shadow active" id="">
+    <ul class="thumbnails">
+        <?php
+        $query = "SELECT * FROM products  WHERE category = 'Desktop PC' ORDER BY prod_name ASC";
+        $result = mysqli_query($dbconn, $query);
+        $count = 0; 
+         echo '<div class="row mt-5">';
+        while ($res = mysqli_fetch_array($result)) {
+            $prod_id = $res['prod_id'];
+        ?>
+            <div class="col-sm-4 ">
+                <div class="thumbnail ">
+                    <?php if ($res['prod_pic1'] != "") : ?>
+                        <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="240px">
+                    <?php else : ?>
+                        <img src="../uploads/default.png" width="300px" height="200px">
+                    <?php endif; ?>
+                    <div class="caption">
+                        <h5><b><?php echo $res['prod_name']; ?></b></h5>
+                        <h6 class="m-3">
+                           <a class="btn btn-success btn-round" title="Click for more details!" href="user_product_details.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
+                           <span style="margin-left: 110px;">Rs: <?php echo $res['prod_price']; ?></span> <!-- Add margin-left -->
+                    </h6>
+                    </div>
+                    
+                </div>
+                    <hr color="orange">
+            </div>
+                         
+                    <?php }?> 
+                    
+                    </ul>
+        </div>
      
-<?php }?> 
+        <!-- ===== end===== -->
 
-</ul>
-</div>
+        <!-- ======= tablets section ========== -->
+        
+        <h3 id="accessories"  class="title text-center">Accessories</h3>
+<div class="tab-pane shadow active" id="">
+    <ul class="thumbnails">
+        <?php
+        $query = "SELECT * FROM products  WHERE category = 'Accessories' ORDER BY prod_name ASC";
+        $result = mysqli_query($dbconn, $query);
+        $count = 0; 
+         echo '<div class="row mt-5">';
+        while ($res = mysqli_fetch_array($result)) {
+            $prod_id = $res['prod_id'];
+        ?>
+            <div class="col-sm-4 ">
+                <div class="thumbnail ">
+                    <?php if ($res['prod_pic1'] != "") : ?>
+                        <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="240px">
+                    <?php else : ?>
+                        <img src="../uploads/default.png" width="300px" height="200px">
+                    <?php endif; ?>
+                    <div class="caption">
+                        <h5><b><?php echo $res['prod_name']; ?></b></h5>
+                        <h6 class="m-3">
+                           <a class="btn btn-success btn-round" title="Click for more details!" href="user_product_details.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
+                           <span style="margin-left: 110px;">Rs: <?php echo $res['prod_price']; ?></span> <!-- Add margin-left -->
+                    </h6>
+                    </div>
+                    
+                </div>
+                    <hr color="orange">
+            </div>
+                         
+                    <?php }?> 
+                    
+                    </ul>
+        </div>
+
+<!-- --------- end----------- -->
+
+<!-- ============= chrome book section========== -->
+        
+        <h3 id="chrome-books" class="title text-center">chrome Books</h3>
+<div class="tab-pane shadow active" id="">
+    <ul class="thumbnails">
+        <?php
+        $query = "SELECT * FROM products  WHERE category = 'Chrome Books' ORDER BY prod_name ASC";
+        $result = mysqli_query($dbconn, $query);
+        $count = 0; 
+         echo '<div class="row mt-5">';
+        while ($res = mysqli_fetch_array($result)) {
+            $prod_id = $res['prod_id'];
+        ?>
+            <div class="col-sm-4 ">
+                <div class="thumbnail ">
+                    <?php if ($res['prod_pic1'] != "") : ?>
+                        <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="240px">
+                    <?php else : ?>
+                        <img src="../uploads/default.png" width="300px" height="200px">
+                    <?php endif; ?>
+                    <div class="caption">
+                        <h5><b><?php echo $res['prod_name']; ?></b></h5>
+                        <h6 class="m-3">
+                           <a class="btn btn-success btn-round" title="Click for more details!" href="user_product_details.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
+                           <span style="margin-left: 110px;">Rs: <?php echo $res['prod_price']; ?></span> <!-- Add margin-left -->
+                    </h6>
+                    </div>
+                    
+                </div>
+                    <hr color="orange">
+            </div>
+                         
+                    <?php }?> 
+                    
+                    </ul>
+        </div>
+
+<!-- ---------- end ------------ -->
+
+
+        <!-- ======= Accessories section ========== -->
+        
+        <style>
+  
+  .title {
+    text-align: center; 
+    font-size: 24px; 
+    font-weight: bold;
+    color: #ff6600; 
+    margin: 20px 0; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+    text-decoration: underline;  
+}
+
+  .title a {
+    text-decoration: underline;  
+    color: #ff6600; 
+  }
+
+</style>
+
+<h3 id="tablets" class="title text-center">Tablets</h3>
+
+<div class="tab-pane shadow active" id="">
+    <ul class="thumbnails">
+        <?php
+        $query = "SELECT * FROM products  WHERE category = 'Tablets' ORDER BY prod_name ASC";
+        $result = mysqli_query($dbconn, $query);
+        $count = 0; 
+         echo '<div class="row mt-5">';
+        while ($res = mysqli_fetch_array($result)) {
+            $prod_id = $res['prod_id'];
+        ?>
+            <div class="col-sm-4 ">
+                <div class="thumbnail ">
+                    <?php if ($res['prod_pic1'] != "") : ?>
+                        <img src="../uploads/<?php echo $res['prod_pic1']; ?>" width="300px" height="240px">
+                    <?php else : ?>
+                        <img src="../uploads/default.png" width="300px" height="200px">
+                    <?php endif; ?>
+                    <div class="caption">
+                        <h5><b><?php echo $res['prod_name']; ?></b></h5>
+                        <h6 class="m-3">
+                           <a class="btn btn-success btn-round" title="Click for more details!" href="user_product_details.php?prod_id=<?php echo $res['prod_id']; ?>"><i class="now-ui-icons gestures_tap-01"></i>View</a>
+                           <span style="margin-left: 110px;">Rs: <?php echo $res['prod_price']; ?></span> <!-- Add margin-left -->
+                    </h6>
+                    </div>
+                    
+                </div>
+                    <hr color="orange">
+            </div>
+                         
+                    <?php }?> 
+                    
+                    </ul>
+        </div>
+<!-- ------------- end----------- -->
 
 
 </div>
