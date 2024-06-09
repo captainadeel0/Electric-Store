@@ -294,54 +294,41 @@ include('./config/dbconn.php');
         </div>
      
         <!-- ===== end===== -->
-<style>
+        <style>
+        /* CSS for the banner */
         .banner {
-            background-color: #f8f8f8;
+            background-color: #ffd700;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .banner h1 {
+        h1 {
             color: #333;
-            font-size: 36px;
-            margin-bottom: 20px;
         }
 
-        .banner p {
+        p {
             color: #666;
-            font-size: 18px;
-            margin-bottom: 20px;
         }
 
-        .banner a {
-            background-color: #ff6f61;
-            color: #fff;
-            text-decoration: none;
+        .shop-now-button {
+            background-color: #ff4500;
+            color: white;
             padding: 10px 20px;
-            font-size: 20px;
+            text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
 
-        .banner a:hover {
-            background-color: #e05246;
+        .shop-now-button:hover {
+            background-color: #e04000;
         }
     </style>
-
 <div class="banner">
-    <h1>Summer Shoe Bonanza!</h1>
-    <p>Find Your Perfect Pair at Unbeatable Prices</p>
-    <p>Dive into Summer with Stylish Savings!</p>
-    <p>Explore Our Exclusive Offers:</p>
-    <ul>
-        <li>☀️ Sandals: Embrace the Sun in Comfort and Style!</li>
-        <li>🌴 Flip Flops: Casual Cool for Poolside Lounging!</li>
-        <li>🌊 Sneakers: Step Up Your Summer Adventures!</li>
-        <li>🏖️ Espadrilles: Effortlessly Chic for Beach Days!</li>
-    </ul>
-    <p>Limited Time Only! Grab Your Summer Essentials Now!</p>
-    <a href="#">Shop Now</a>
+    <img src="./" alt="Summer Shoe Deals">
+    <h1>Summer Shoe Deals</h1>
+    <p>Discover our hottest summer styles at unbeatable prices!</p>
+    <a href="#" class="shop-now-button">Shop Now</a>
 </div>
 
         <!-- ======= tablets section ========== -->
