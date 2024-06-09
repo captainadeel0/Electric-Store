@@ -109,8 +109,7 @@
                             <i class="fa fa-instagram"></i>
                             <p class="d-lg-none d-xl-none">Instagram</p>
                         </a>
-                    </li>
-                </ul>
+                    </li>                </ul>
             </div>
         </div>
     </nav>
