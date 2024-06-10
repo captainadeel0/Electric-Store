@@ -40,9 +40,7 @@
                                  include('../config/dbconn.php');
                                  $query=mysqli_query($dbconn,"SELECT * FROM `users` WHERE user_id='".$_SESSION['id']."'");
                                  $row=mysqli_fetch_array($query);
-                                 $cid=$row['user_id'];
-                                 echo $row['fullname'];
-                                ?>'s Shopping Cart
+                                ?>Shopping Cart
                       </h2>
                       <a class="btn btn-primary btn-round" href="user_index.php"><i class="now-ui-icons shopping_basket"></i> &nbsp Shop more items</a>
                       <hr color="orange"> 
@@ -145,9 +143,6 @@
               }else{
             ?>
            
-                <button  type="submit" id="" onclick="return confirm('Are you sure you want to Checkout?')" name="submit" class="btn btn-success btn-round pull-right" data-toggle="modal" data-target="#myModal">
-                <i class="now-ui-icons shopping_bag-16"></i> Check Out</button> 
-
                <?php
                 }
               ?>

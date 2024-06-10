@@ -106,7 +106,7 @@
 
         <div class="wrapper">
             <div class="page-header page-header-small" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/ironman.jpg');"></div>
+            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/1.jpg');"></div>
                 <div class="container">
                     <div class="content-center">
                         <div class="photo-container">
@@ -260,8 +260,50 @@
                     </div>
 
 
+                    <div class="col-sm-6 col-xl-3 ">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            
+                            <ul class="nav nav-pills nav-pills-primary" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="orders.php" role="tablist">
+                                    <i class="now-ui-icons users_circle-08"></i>
+                                    </a>
+                                </li>
+                            </ul>  
+
+                            <div class="ms-3">
+                                <p class="mb-2">Orders</p>
+                                <?php
+                                require_once("../config/dbconn.php");
+                                $select = "SELECT * FROM order_details";
+                                
+                                $result = mysqli_query($dbconn, $select);
+                                
+                                if($orders_total = mysqli_num_rows($result))
+                                
+                                {
+                                
+                                echo ' <h6 class="mb-0">'.$orders_total.'</h6>';
+                                }
+                                else
+                                 {
+                                    echo ' <h6 class="mb-0">No data found</h6>';
+                                 }
+                              
+                                  ?>
+                                  
+                                  
+                            </div>
+                        </div>
+                    </div>
+
+
+                   
+
+
                                    
-                    <div class="col-sm-6 col-xl-3">
+                    <div class="col-sm-6 col-xl-3 mt-4">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
                             

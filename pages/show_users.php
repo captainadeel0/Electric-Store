@@ -157,6 +157,11 @@
                                         <i class="now-ui-icons users_circle-08"></i>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"  href="orders.php" role="tablist">
+                                        <i class="now-ui-icons shopping_tag-content"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

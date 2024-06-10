@@ -116,7 +116,7 @@
     <!-- End Navbar -->
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/ironman.jpg');">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/1.jpg');">
             
                 <div class="container">
                     <div class="content-center brand">
@@ -311,6 +311,56 @@
         </div>
      
         <!-- ===== end===== -->
+
+        <style>
+        .banner {
+            background-color: orange;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .banner a {
+            background-color: green;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .banner a:hover {
+            background-color: #e05246;
+        }
+    </style>
+
+<div class="banner">
+    <h1>Eid-ul-Adha Deals!</h1>
+    <p>Find Your Perfect Electronics at Unbeatable Prices</p>
+    <p>Explore Our Exclusive Offers:</p>
+    <ul>
+        <li>☀️ Sandals: Embrace the Sun in Comfort and Style!</li>
+        <li>🌴 Flip Flops: Casual Cool for Poolside Lounging!</li>
+        <li>🌊 Sneakers: Step Up Your Summer Adventures!</li>
+        <li>🏖️ Espadrilles: Effortlessly Chic for Beach Days!</li>
+    </ul>
+    <p>Limited Time Only! Grab Your Essentials Now!</p>
+    <a href="#">Shop Now</a>
+</div>
+
 
         <!-- ======= tablets section ========== -->
         

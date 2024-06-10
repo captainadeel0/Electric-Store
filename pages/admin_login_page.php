@@ -63,7 +63,7 @@
     </nav>
     <!-- End Navbar -->
     <div class="page-header" filter-color="orange">
-        <div class="page-header-image" style="background-image:url(../assets/img/ironman.jpg)"></div>
+        <div class="page-header-image" style="background-image:url(../assets/img/1.jpg)"></div>
         <div class="container">
             <div class="col-md-4 content-center">
                 <div class="card card-login card-plain">

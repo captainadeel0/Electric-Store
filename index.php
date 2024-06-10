@@ -99,7 +99,7 @@ include('./config/dbconn.php');
     <!-- End Navbar -->
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/ironman.jpg');">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/1.jpg');">
             
                 <div class="container">
                     <div class="content-center brand">
@@ -294,41 +294,53 @@ include('./config/dbconn.php');
         </div>
      
         <!-- ===== end===== -->
-        <style>
-        /* CSS for the banner */
+<style>
         .banner {
-            background-color: #ffd700;
+            background-color: orange;
             padding: 20px;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
+        .banner h1 {
             color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
         }
 
-        p {
+        .banner p {
             color: #666;
+            font-size: 18px;
+            margin-bottom: 20px;
         }
 
-        .shop-now-button {
-            background-color: #ff4500;
-            color: white;
-            padding: 10px 20px;
+        .banner a {
+            background-color: green;
+            color: #fff;
             text-decoration: none;
+            padding: 10px 20px;
+            font-size: 20px;
             border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
-        .shop-now-button:hover {
-            background-color: #e04000;
+        .banner a:hover {
+            background-color: #e05246;
         }
     </style>
+
 <div class="banner">
-    <img src="./" alt="Summer Shoe Deals">
-    <h1>Summer Shoe Deals</h1>
-    <p>Discover our hottest summer styles at unbeatable prices!</p>
-    <a href="#" class="shop-now-button">Shop Now</a>
+    <h1>Eid-ul-Adha Deals!</h1>
+    <p>Find Your Perfect Electronics at Unbeatable Prices</p>
+    <p>Explore Our Exclusive Offers:</p>
+    <ul>
+        <li>☀️ Sandals: Embrace the Sun in Comfort and Style!</li>
+        <li>🌴 Flip Flops: Casual Cool for Poolside Lounging!</li>
+        <li>🌊 Sneakers: Step Up Your Summer Adventures!</li>
+        <li>🏖️ Espadrilles: Effortlessly Chic for Beach Days!</li>
+    </ul>
+    <p>Limited Time Only! Grab Your Essentials Now!</p>
+    <a href="#">Shop Now</a>
 </div>
 
         <!-- ======= tablets section ========== -->

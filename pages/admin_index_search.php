@@ -115,7 +115,7 @@
     <!-- End Navbar -->
     <div class="wrapper">
         <div class="page-header clear-filter" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/ironman.jpg');">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/1.jpg');">
             
                 <div class="container">
                     <div class="content-center brand">

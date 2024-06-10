@@ -3,7 +3,7 @@
     include('../config/dbconn.php');
 
     if (!isset($_SESSION['id']) ||(trim ($_SESSION['id']) == '')) {
-        header('location:admin_login_page.php');
+        header('location:user_login_page.php');
         exit();
     }
 ?>
@@ -36,8 +36,14 @@
         <div class="main">
             <div class="section section-basic">
                 <div class="container">
-                      <h2>Customer Orders</h2>
-                      <a class="btn btn-primary btn-round" href="admin_index.php"><i class="now-ui-icons arrows-1_minimal-left"></i> &nbsp Back to index</a>
+                      <h2>       <?php
+                                 include('../config/dbconn.php');
+                                 $query=mysqli_query($dbconn,"SELECT * FROM `users` WHERE user_id='".$_SESSION['id']."'");
+                                 $row=mysqli_fetch_array($query);
+                        
+                                 
+                                ?> Shoped Items
+                      </h2>
                       <hr color="orange"> 
                 
                 <div class="col-md-12">
@@ -48,60 +54,111 @@
 
 
 
+      <?php 
+        $user_id = $_SESSION['id'];
+
+        $query3=mysqli_query($dbconn,"SELECT * FROM order_details WHERE user_id='$user_id' AND order_id=''") or die (mysql_error());
+        $count2=mysqli_num_rows($query3);
+      ?>
+
+  <form method="post" action="user_payment.php">
+
+   
+
+    <h5>[ <small><?php echo $count2;?> </small>] types of item.</h5>  
+
+      <table class="table table-condensed table-bordered">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Description</th>
+                  <th width="100">Quantity</th>
+                  <th width="100">Price(Php)</th>
+                  <th width="100">Total(Php)</th>
+                  <th width="100">Option</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+          <?php 
+            $query=mysqli_query($dbconn,"SELECT * FROM order_details WHERE user_id='$user_id' and order_id=''") or die (mysqli_error());
+            while($row=mysqli_fetch_array($query)){
+            $count=mysqli_num_rows($query);
+            $prod_id=$row['prod_id'];
+
+            $query2=mysqli_query($dbconn,"SELECT * FROM products WHERE prod_id='$prod_id'") or die (mysqli_error());
+            $row2=mysqli_fetch_array($query2);
+          ?>
+
+              <tr>
+                  <td> <img width="150" height="100" src="../uploads/<?php echo $row2['prod_pic1'];?>" alt=""/></td>
+                  <td><b><?php echo $row2['prod_name'];?></b><br><br>
+                    <?php echo $row2['prod_desc'];
+                    ?>
+                  </td>
+                  <td><br><?php  echo $row['prod_qty']; ?></td>
+                  <td><br><?php  echo $row2['prod_price']; ?></td>
+                  <td><br><?php echo $row['total'];?></td>
+                  <td>     
+                    <a href="edit_order_details.php?order_id=<?php echo $row['order_details_id'];?>" ><button class="btn btn-warning btn-round" type="button">update qty</button></a>
+                     <a href="delete_order_details.php?order_id=<?php echo $row['order_details_id'];?>" ><button class="btn btn-danger btn-round" onclick="return confirm('Are you sure you want to delete?')" type="button">remove</button></a>
+                  </td>
+
+                  <?php
+                 } ?>
+
+              </tr>
+        
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td colspan="2" align="right"><b>Total Price</b></td>
+                  <td class="label label-important"> <strong>
+                     <?php
+                      $result5 = mysqli_query($dbconn,"SELECT sum(total) FROM order_details WHERE user_id='$user_id' and order_id=''");
+                      while($row5 = mysqli_fetch_array($result5))
+                        { 
+                        echo 'Php'.$row5['sum(total)'];
+                        echo '<input type="hidden" name="total" value="'.$row5['sum(total)'].'">';
+                        }
+                      ?></strong>
+                  </td>
+                  <td></td>
+              </tr>
+
+              </tbody>
+          </table>
+    
+
+                <?php
+              if($count2==0 ){
+            ?>
+
+                <script type="text/javascript">
+                  alert("Shopping Cart Empty! Add an item.");
+                  window.location= "user_index.php";
+                </script>
+
+               <?php
+              }else{
+            ?>
+           
+               
+               <?php
+                }
+              ?>
+
+            
+            </div>
+
+    </form>
 
 
 
 
 
-<?php
-                                      include('../config/dbconn.php');
-
-                                      $action = isset($_GET['action']) ? $_GET['action'] : "";
-                                      if($action=='deleted'){
-                                          echo "<div class='alert alert-success'>Record was deleted.</div>";
-                                      }
-                                      $query = "SELECT * FROM order ORDER BY order_date ASC";
-                                      $result = mysqli_query($dbconn,$query);
-                                      ?>  
-                                 
-                                <br>
-                                <br>
-                                <table id="" class="table table-condensed table-striped">
-                                    <tr>
-                                      <th>Tracking number</th>
-                                      <th>Customer</th>
-                                      <th>Order date</th>
-                                      <th>Shipping Address</th>
-                                      <th>Contact</th>
-                                      <th>Email</th>
-                                      <th>Total price(Php)</th>
-                                      <th>Tax(Php)</th>
-                                      <th>Status</th>
-                                    </tr>
-                                        <?php
-                                          if($result){
-                                            while($res = mysqli_fetch_array($result)) {     
-                                              echo "<tr>";
-                                                echo "<td>".$res['track_num']."</td>";
-                                                echo "<td>".$res['firstname'].' '.$res['middlename'].' '.$res['lastname']."</td>";
-                                                echo "<td>".$res['order_date']."</td>"; 
-                                                echo "<td>".$res['shipping_add']."</td>";  
-                                                echo "<td>".$res['contact']."</td>"; 
-                                                echo "<td>".$res['email']."</td>"; 
-                                                echo "<td>".$res['totalprice']."</td>"; 
-                                                echo "<td>".$res['tax']."</td>";
-                                                echo "<td>".$res['status']."</td>";
-                                              echo "</tr>"; 
-                                            }
-                                          }?>
-                                </table><br><br><br><br>
-
-
-
-
-
-
-
+           
 
 
 
